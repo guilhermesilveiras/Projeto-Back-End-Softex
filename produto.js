@@ -15,13 +15,12 @@ export class Produto {
 
     alertaEstoqueBaixo() {
         if (this.#qtdEstoque <= 3) {
-            console.log("Quuantidade no estoque muito Baixa");
+            console.log("Quantidade no estoque muito Baixa");
         }
     }
 
     get nome() {
         return this.#nome;
-
     }
 
     set nome(nome) {

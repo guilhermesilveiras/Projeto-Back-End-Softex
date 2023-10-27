@@ -17,22 +17,18 @@ export class Cliente {
 
     getNome() {
         return this.#nome;
-
     }
 
     getEndereco() {
         return this.#endereco
-
     }
 
     getTelefone() {
         return this.#telefone
-
     }
 
     getEmail() {
         return this.#email
-
     }
 }
 
