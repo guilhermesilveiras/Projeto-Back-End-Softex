@@ -1,35 +1,32 @@
 import { Produto } from "./produto.mjs";
-import { cliente } from "./cliente.mjs";
-export class Venda{
-   #dataDavenda;
-   #produtosVendidos = [];
-   constructor(){
-       this.#dataDavenda = new Date();
-       this.#produtosVendidos = [];
-   }
+import { Cliente } from "./Cliente.mjs";
 
-   registroDeVenda(produto) {
-       this.#produtosVendidos.push(produto);
-       return this.#produtosVendidos;
-   }
+export class Venda {
+    #dataDavenda;
+    #produtosVendidos = [];
+    constructor() {
+        this.#dataDavenda = new Date();
+        this.#produtosVendidos = [];
+    }
 
-   calcularTotalVenda(produto) {
-       let total = 0;
-       for(const produto of this.#produtosVendidos){
-           total += produto.preco;     
-       }
-       return total; 
-   }
+    registroDeVenda(produto) {
+        this.#produtosVendidos.push(produto);
+        return this.#produtosVendidos;
+    }
 
-   emitirNota(produto, cliente){
-       let produtos = this.registroDeVenda(produto);
-       let total = this.calcularTotalVenda(produto);
-       let clientePedido = cliente.associarPedidos();
-       let data = this.#dataDavenda;
-       return `PRODUTOS: ${produtos}\nVALOR A PAGAR: ${total}\nCLIENTE: ${clientePedido}\nDATA: ${data}`
-   }
+    calcularTotalVenda(produto) {
+        let total = 0;
+        for (const produto of this.#produtosVendidos) {
+            total += produto.preco;
+        }
+        return total;
+    }
 
-
-
-
+    emitirNota(produto, cliente) {
+        let produtos = this.registroDeVenda(produto);
+        let total = this.calcularTotalVenda(produto);
+        let clientePedido = cliente.associarPedidos();
+        let data = this.#dataDavenda;
+        return `PRODUTOS: ${produtos}\nVALOR A PAGAR: ${total}\nCLIENTE: ${clientePedido}\nDATA: ${data}`
+    }
 }

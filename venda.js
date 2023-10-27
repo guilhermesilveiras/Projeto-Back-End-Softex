@@ -1,8 +1,9 @@
- import { Produto } from "./produto";
- class Venda{
+import { Produto } from "./produto.js";
+
+class Venda {
     #dataDavenda;
     #produtosVendidos = [];
-    constructor(){
+    constructor() {
         this.#dataDavenda = new Date();
         this.#produtosVendidos = [];
     }
@@ -14,14 +15,9 @@
 
     calcularTotalVenda(produto) {
         let total = 0;
-        for(const produto of this.#produtosVendidos){
+        for (const produto of this.#produtosVendidos) {
             total += produto.preco;
             return total;
-            
         }
     }
-
-
-
-
 }
