@@ -11,6 +11,7 @@ export class Venda {
 
     registroDeVenda(produto) {
         this.#produtosVendidos.push(produto);
+        produto.removerDoEstoque(1); // TESTAR ISSO DEPOIS!!!
         return this.#produtosVendidos;
     }
 
