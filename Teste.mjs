@@ -9,7 +9,7 @@ const v1 = new Venda();
 let notinha = v1.emitirNota(p1, c1);
 console.log(notinha);
 
-const c2 = new Cliente("Pedro", "Rua 2323", "2345-6789", "maria@gmail.com");
+const c2 = new Cliente("Pedro", "Rua 2323", "2345-6789", "pedro@gmail.com");
 var nomeCliente2 = c2.getNome();
 const p2 = new Produto("Camisa de Time", 99.90, 5);
 const v2 = new Venda();
