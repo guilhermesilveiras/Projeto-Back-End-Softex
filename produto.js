@@ -9,7 +9,8 @@ export class Produto {
         this.#qtdEstoque = qtdEstoque;
     }
 
-    atualizarEstoque() {
+    atualizarEstoque(novaQuantidade) {
+        this.#qtdEstoque = novaQuantidade;
 
     }
 
