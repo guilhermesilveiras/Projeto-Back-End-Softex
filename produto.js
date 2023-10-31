@@ -20,6 +20,10 @@ export class Produto {
         }
     }
 
+    removerDoEstoque(qtdVendida) {
+        this.#qtdEstoque -= qtdVendida;
+    }
+
     get nome() {
         return this.#nome;
     }
