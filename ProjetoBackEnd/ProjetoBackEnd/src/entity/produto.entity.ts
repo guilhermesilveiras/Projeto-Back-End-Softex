@@ -1,10 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { Venda } from "./venda.entity";
 
 @Entity("produto")
 export class Produto {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    idProduto: number;
 
     @Column({ length: 100 })
     nome: string;
@@ -14,4 +15,7 @@ export class Produto {
 
     @Column('int')
     qtdEstoque: number;
+
+    @ManyToOne(() => Venda, venda => venda.produtosVendidos)
+    venda: Venda;
 }
