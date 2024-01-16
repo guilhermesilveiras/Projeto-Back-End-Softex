@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from "typeorm";
+import { Venda } from './venda.entity';
 
 @Entity("cliente")
 export class Cliente {
@@ -17,5 +18,9 @@ export class Cliente {
 
         @Column({ length: 15 })
         telefone!: string;
+
+        @OneToOne(() => Venda)
+        @JoinColumn()
+        venda!: Venda;
 
 }
