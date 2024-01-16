@@ -6,21 +6,21 @@ import { Cliente } from './cliente.entity';
 export class Venda {
 
     @PrimaryGeneratedColumn()
-    idVenda: number;
+    idVenda!: number;
 
     @CreateDateColumn()
-    dataDaVenda: Date;
+    dataDaVenda!: Date;
 
     @OneToMany(() => Produto, produto => produto.venda, {
         cascade: true
     })
     @JoinColumn()
-    produtosVendidos: Produto[];
+    produtosVendidos!: Produto[];
 
     @Column('decimal', { precision: 5, scale: 2, default: 0 })
-    totalVenda: number;
+    totalVenda!: number;
 
     @OneToOne(() => Cliente, cliente => cliente.venda)
     @JoinColumn()
-    cliente: Cliente;
+    cliente!: Cliente;
 }

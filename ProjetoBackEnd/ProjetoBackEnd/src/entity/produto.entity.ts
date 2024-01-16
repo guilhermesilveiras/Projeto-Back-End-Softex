@@ -5,17 +5,17 @@ import { Venda } from "./venda.entity";
 export class Produto {
 
     @PrimaryGeneratedColumn()
-    idProduto: number;
+    idProduto!: number;
 
     @Column({ length: 100 })
-    nome: string;
+    nome!: string;
 
     @Column('decimal', { precision: 5, scale: 2 })
-    preco: number;
+    preco!: number;
 
     @Column('int')
-    qtdEstoque: number;
+    qtdEstoque!: number;
 
     @ManyToOne(() => Venda, venda => venda.produtosVendidos)
-    venda: Venda;
+    venda!: Venda;
 }

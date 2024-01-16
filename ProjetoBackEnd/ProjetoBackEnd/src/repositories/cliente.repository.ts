@@ -1,18 +1,25 @@
-import { EntityRepository, Repository } from "typeorm";
 import { Cliente } from "../entity/cliente.entity";
 
-@EntityRepository(Cliente)
-export class ClienteRepository extends Repository<Cliente> {
 
-    async saveCliente(cliente: Cliente): Promise<Cliente> {
-        return await this.save(cliente);
+class ClienteRepository {
+    clientesDB = new Array<Cliente>();
+
+    async save(cliente: Cliente): Promise<Cliente> {
+        try {
+            this.clientesDB.push(cliente);
+            return cliente;
+        } catch (err) {
+            throw new Error("Falha ao criar o cliente!");
+        }
     }
 
-    async findClienteBy(cpf: string): Promise<typeof Cliente | undefined> {
-        const cliente = await this.createQueryBuilder("cliente")
-            .where("cliente.cpf = :cpf", { cpf })
-            .getOne();
-            return Cliente;
+    async retrieveAll(): Promise<Array<Cliente>> {
+        try {
+            return this.clientesDB;
+        } catch (error) {
+            throw new Error("Falha ao retornar os clientes!");
+        }
     }
 
 }
+export default new ClienteRepository();
