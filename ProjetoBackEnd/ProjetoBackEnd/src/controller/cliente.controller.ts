@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { Cliente } from "../entity/cliente.entity";
-import ClienteRepository from "../repositories/cliente.repository";
 import clienteRepository from "../repositories/cliente.repository";
 
 export default class ClienteController {

@@ -1,6 +1,4 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
-import { Venda } from './venda.entity';
-import { OneToOne } from "typeorm";
 
 @Entity("cliente")
 export class Cliente {
@@ -20,6 +18,4 @@ export class Cliente {
         @Column({ length: 15 })
         telefone!: string;
 
-        @OneToOne(() => Venda, venda => venda.cliente)
-        venda!: Venda;
 }
